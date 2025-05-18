@@ -25,15 +25,15 @@ const LoginPage= () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '100vh',
+            minHeight: '50vh',
             p: 2 
           }}
        >
             <Paper  elevation={10}
               sx={{
                 width: '100%',
-                maxWidth: "70vh", 
-                maxHeight: "70vh",
+                maxWidth: "50vh", 
+                maxHeight: "50vh",
                 p: 4, 
                 display: 'flex',
                 flexDirection: 'column',
@@ -41,19 +41,19 @@ const LoginPage= () => {
                 <Typography variant="h4" align="center" style={{ margin: '20px' }}>
                     Portal Monte Jiu-Jitsu Pomerode
                 </Typography>
-                <Grid container spacing={2} display="flex" flexDirection={"column"}  alignItems="center" style={{ minHeight: '100vh' }}>
-                    <Grid size={12}>
-                        <TextField id="filled-basic" label="Número de cadastro" variant="filled" />
+                <Grid container spacing={2} display="flex" flexDirection={"column"}  alignItems="center" justifyContent={"center"}>
+                    <Grid size={12}  sx={{ display: 'flex', justifyContent: 'center' }} >
+                        <TextField id="filled-basic" label="Número de cadastro" variant="filled" required />
                     </Grid>
                     <Box  display="flex" flexDirection={"row"} gap={2} justifyContent="space-between" alignItems="center">
                         <Grid size={6}>
-                            <Button variant="outlined" startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
+                            <Button variant="outlined" sx={{ width: '14vh', height: '4vh' }} startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
                                 Criar Conta
                             </Button>
                         </Grid>    
                         <Grid size={6}>
-                            <Button variant="contained" endIcon={<ArrowForwardIcon />}>
-                            Send
+                            <Button variant="contained" sx={{ width: '14vh' , height: '4vh'}} endIcon={<ArrowForwardIcon />}>
+                                Marcar presença
                             </Button>
                         </Grid>    
                     </Box>
