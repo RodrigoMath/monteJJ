@@ -6,7 +6,11 @@ Ele surgiu a partir da necessidade de uma academia de Jiu-Jitsu em registrar a p
 Foi então criada essa aplicação, que permite criar usuários e marcar presença, tendo sua referência voltada para uma lista de chamada.
 O backend é responsável por processar essa informação e gerar relatórios mensais, para que o professor consiga se basear em dados para promover trocas de faixa e entregrar grau.
 
+obs: trabalho em andamento.
+
 # EN - This project was developed with React, TypeScript and Material UI.
 
 It was created to meet the need of a Brazilian Jiu-Jitsu gym to track student attendance and use that data to support belt promotions.
 The application allows users to be registered and their attendance to be marked. The backend is responsible for generating and sending monthly attendance reports to the teacher, so he can take actions based on data.
+
+observation, ongoing project.
