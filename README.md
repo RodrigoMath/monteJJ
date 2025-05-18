@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-#BR/
+#BR
 #Esse projeto foi desenvolvido utilizando React, TypeScript e Material UI.
 Ele surgiu a partir da necessidade de uma academia de Jiu-Jitsu em registrar a presença dos alunos, com o objetivo de obter dados concretos para apoiar o processo de graduação.
 
