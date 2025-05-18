@@ -5,6 +5,7 @@ import type { ReactNode } from 'react';
 import { Button, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ModalCadastroProps {
   handleClose: () => void;
@@ -12,7 +13,7 @@ interface ModalCadastroProps {
   children?: ReactNode; 
 }
 
-const ModalCadastro = ({ handleClose, children } : ModalCadastroProps) => {
+const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => {
     const style = {
     position: 'absolute',
     top: '50%',
@@ -36,6 +37,10 @@ const ModalCadastro = ({ handleClose, children } : ModalCadastroProps) => {
         aria-describedby="modal-modal-description"
         >
         <Box sx={style}>
+            <CloseIcon onClick={handleClose} sx={{ cursor: 'pointer', position: 'absolute', top: 10, right: 10, '&:hover': {
+            bgcolor: 'primary.dark', 
+            color: 'text.primary'   
+            }}} />
             <Box display="flex" flexDirection={"row"} gap={2} justifyContent="space-between" alignItems="center">
                 <ManageAccountsIcon fontSize="large" />
                 <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -43,8 +48,8 @@ const ModalCadastro = ({ handleClose, children } : ModalCadastroProps) => {
                 </Typography>
             </Box>
             <Grid container spacing={2} display="flex" flexDirection={"row"}  alignItems="center">
-                <TextField id="filled-basic" label="e-mail" variant="filled" />
-                <TextField id="filled-basic" label="nome" variant="filled" /> 
+                <TextField id="filled-basic" label="e-mail" variant="filled" fullWidth required autoFocus />
+                <TextField id="filled-basic" label="nome" variant="filled" fullWidth required autoFocus /> 
             </Grid>
            <Button variant="contained" startIcon={<SendIcon />}>Criar conta</Button>
         </Box>
