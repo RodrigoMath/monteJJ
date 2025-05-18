@@ -13,4 +13,4 @@ obs: trabalho em andamento.
 It was created to meet the need of a Brazilian Jiu-Jitsu gym to track student attendance and use that data to support belt promotions.
 The application allows users to be registered and their attendance to be marked. The backend is responsible for generating and sending monthly attendance reports to the teacher, so he can take actions based on data.
 
-observation, ongoing project
+observation, ongoing project.
