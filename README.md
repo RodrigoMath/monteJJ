@@ -1,54 +1,14 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#BR/
+#Esse projeto foi desenvolvido utilizando React, TypeScript e Material UI.
+Ele surgiu a partir da necessidade de uma academia de Jiu-Jitsu em registrar a presença dos alunos, com o objetivo de obter dados concretos para apoiar o processo de graduação.
 
-Currently, two official plugins are available:
+Foi então criada essa aplicação, que permite criar usuários e marcar presença, tendo sua referência voltada para uma lista de chamada.
+O backend é responsável por processar essa informação e gerar relatórios mensais, para que o professor consiga se basear em dados para promover trocas de faixa e entregrar grau.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#EN
+#This project was developed with React, TypeScript and Material UI.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+It was created to meet the need of a Brazilian Jiu-Jitsu gym to track student attendance and use that data to support belt promotions.
+The application allows users to be registered and their attendance to be marked. The backend is responsible for generating and sending monthly attendance reports to the teacher, so he can take actions based on data.
