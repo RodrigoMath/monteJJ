@@ -15,7 +15,7 @@ const Logo = () => {
         borderRadius: '50%',
         border: '2px solid #ccc',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        maxWidth: '60vh',
+        maxWidth: '60vw',
     });
     return (
         <LogoContainer>

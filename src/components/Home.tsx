@@ -8,7 +8,11 @@ const Home = () => {
         <Grid size={6}>
             <Logo/>
         </Grid>
-        <Grid size={6}>
+        <Grid size={6}sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
             <LoginPage/>
         </Grid>
     </Grid>

@@ -32,8 +32,7 @@ const LoginPage= () => {
             <Paper  elevation={10}
               sx={{
                 width: '100%',
-                maxWidth: "50vh", 
-                maxHeight: "50vh",
+                maxWidth: { xs: '90vw', sm: '400px', md: '450px' }, 
                 p: 4, 
                 display: 'flex',
                 flexDirection: 'column',
@@ -47,12 +46,12 @@ const LoginPage= () => {
                     </Grid>
                     <Box  display="flex" flexDirection={"row"} gap={2} justifyContent="space-between" alignItems="center">
                         <Grid size={6}>
-                            <Button variant="outlined" sx={{ width: '14vh', height: '4vh' }} startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
+                            <Button variant="outlined" sx={{ width: '9vw', height: '5vh' }} startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
                                 Criar Conta
                             </Button>
                         </Grid>    
                         <Grid size={6}>
-                            <Button variant="contained" sx={{ width: '14vh' , height: '4vh'}} endIcon={<ArrowForwardIcon />}>
+                            <Button variant="contained" sx={{ width: '9vw' , height: '5vh'}} endIcon={<ArrowForwardIcon />}>
                                 Marcar presença
                             </Button>
                         </Grid>    
