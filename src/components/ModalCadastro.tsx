@@ -38,16 +38,52 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
     };
     const [userEmail, setUserEmail] = useState("");
     const [userName, setUserName] = useState("");
+    const [emailError, setEmailError] = useState(false);
+    const [nameError, setNameError] = useState(false);
+    const [errorMessages, setErrorMessages] = useState({
+    email: '',
+    name: ''
+    });
 
     const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let value = event.target.value.trim();
+        let value = event.target.value;
         setUserEmail(value);
     }
 
     const onUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let value = event.target.value.trim();
+        let value = event.target.value;
         setUserName(value);
     }
+
+    const validateFields = () => {
+        let isValid = true;
+        const newErrorMessages = { email: '', name: '' };
+
+        // Validação do nome
+        if (!userName.trim()) {
+            newErrorMessages.name = 'Nome é obrigatório';
+            setNameError(true);
+            isValid = false;
+        } else {
+            setNameError(false);
+        }
+
+        // Validação do email
+        if (!userEmail.trim()) {
+            newErrorMessages.email = 'Email é obrigatório';
+            setEmailError(true);
+            isValid = false;
+        } else if (!/^\S+@\S+\.\S+$/.test(userEmail)) {
+            newErrorMessages.email = 'Email inválido';
+            setEmailError(true);
+            isValid = false;
+        } else {
+            setEmailError(false);
+        }
+
+        setErrorMessages(newErrorMessages);
+        return isValid;
+    };
    
 
     const handleSingup = () => {
@@ -56,8 +92,7 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
             email: userEmail
         };
 
-        if (!userEmail || !userName) return;
-        console.log(userProfile);
+        if (!validateFields()) return;
         axios.post('/api/usuario', userProfile)
             .then(response => {
                 console.log("Sucesso:", response.data);
@@ -87,8 +122,10 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
                 </Typography>
             </Box>
             <Grid container spacing={2} display="flex" flexDirection={"row"}  alignItems="center">
-                <TextField id="filled-basic" label="e-mail" variant="filled" fullWidth required autoFocus onChange={onEmailChange}/>
-                <TextField id="filled-basic" label="nome" variant="filled" fullWidth required  onChange={onUserNameChange}/> 
+                <TextField id="filled-basic" label="e-mail" variant="filled" fullWidth required autoFocus error={emailError}
+                helperText={errorMessages.email} value={userEmail}  onChange={onEmailChange}/>
+                <TextField id="filled-basic" label="nome" variant="filled" fullWidth required error={nameError} helperText={errorMessages.name}
+                value={userName} onChange={onUserNameChange}/> 
             </Grid>
            <Button variant="contained" startIcon={<SendIcon />} onClick={handleSingup}>Criar conta</Button>
         </Box>

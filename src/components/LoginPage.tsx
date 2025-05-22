@@ -19,6 +19,15 @@ const LoginPage= () => {
 
     const [idUsuario, setIdUsuario] = useState("");
 
+    const [emailError, setEmailError] = useState(false);
+    const [nameError, setNameError] = useState(false);
+    const [errorMessages, setErrorMessages] = useState({
+    email: '',
+    name: ''
+    });
+
+    
+
 
 
    const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
