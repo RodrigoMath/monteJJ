@@ -4,7 +4,9 @@ import LoginPage from './LoginPage';
 
 const Home = () => {
   return (
-   <Grid container spacing={2}>
+   <Grid container spacing={2} sx= {{
+    backgroundColor: 'primary.main',
+   }}>
         <Grid size={6}>
             <Logo/>
         </Grid>

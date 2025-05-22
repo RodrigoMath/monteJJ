@@ -1,16 +1,22 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Button, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from 'axios';
 
 interface ModalCadastroProps {
   handleClose: () => void;
   open: boolean;
   children?: ReactNode; 
+}
+
+interface UserProfile {
+    name: string;
+    email: string;
 }
 
 const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => {
@@ -30,6 +36,38 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
     gap: 2,
     alignItems: 'center',
     };
+    const [userEmail, setUserEmail] = useState("");
+    const [userName, setUserName] = useState("");
+
+    const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let value = event.target.value.trim();
+        setUserEmail(value);
+    }
+
+    const onUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let value = event.target.value.trim();
+        setUserName(value);
+    }
+   
+
+    const handleSingup = () => {
+        const userProfile: UserProfile = {
+            name: userName,
+            email: userEmail
+        };
+
+        if (!userEmail || !userName) return;
+        console.log(userProfile);
+        axios.post('/api/usuario', userProfile)
+            .then(response => {
+                console.log("Sucesso:", response.data);
+                handleClose();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+
     return (
         <Modal
         open={open}
@@ -49,10 +87,10 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
                 </Typography>
             </Box>
             <Grid container spacing={2} display="flex" flexDirection={"row"}  alignItems="center">
-                <TextField id="filled-basic" label="e-mail" variant="filled" fullWidth required autoFocus />
-                <TextField id="filled-basic" label="nome" variant="filled" fullWidth required autoFocus /> 
+                <TextField id="filled-basic" label="e-mail" variant="filled" fullWidth required autoFocus onChange={onEmailChange}/>
+                <TextField id="filled-basic" label="nome" variant="filled" fullWidth required  onChange={onUserNameChange}/> 
             </Grid>
-           <Button variant="contained" startIcon={<SendIcon />}>Criar conta</Button>
+           <Button variant="contained" startIcon={<SendIcon />} onClick={handleSingup}>Criar conta</Button>
         </Box>
         </Modal>
     );
