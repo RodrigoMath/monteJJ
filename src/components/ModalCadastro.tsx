@@ -36,6 +36,9 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
     gap: 2,
     alignItems: 'center',
     };
+
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const [userEmail, setUserEmail] = useState("");
     const [userName, setUserName] = useState("");
     const [emailError, setEmailError] = useState(false);
@@ -93,13 +96,14 @@ const ModalCadastro = ({ handleClose, open, children } : ModalCadastroProps) => 
         };
 
         if (!validateFields()) return;
-        axios.post('/api/usuario', userProfile)
+        axios.post(`${API_URL}/usuario`, userProfile)
             .then(response => {
                 console.log("Sucesso:", response.data);
                 handleClose();
             })
             .catch(error => {
-                console.error("Error:", error);
+                console.error("Error:", error.response);
+                alert(error.response.data);
             });
     }
 

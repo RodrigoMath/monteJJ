@@ -19,15 +19,7 @@ const LoginPage= () => {
 
     const [idUsuario, setIdUsuario] = useState("");
 
-    const [emailError, setEmailError] = useState(false);
-    const [nameError, setNameError] = useState(false);
-    const [errorMessages, setErrorMessages] = useState({
-    email: '',
-    name: ''
-    });
-
-    
-
+    const API_URL = import.meta.env.VITE_API_URL;
 
 
    const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,10 +32,13 @@ const LoginPage= () => {
     if (!idUsuario) return;
 
     try {
-        await axios.post('/api/checkin', { id: idUsuario });
+        await axios.post(`${API_URL}/checkin`, { idUsuario: idUsuario });
         setIdUsuario(""); 
         alert("Check-in realizado! Próximo usuário...");
     } catch (error) {
+        alert("Erro ao realizar check-in. Verifique o número de cadastro.");
+        setIdUsuario(""); 
+
         console.error("Erro no check-in:", error);
     }
     };
