@@ -69,13 +69,27 @@ const LoginPage= () => {
                         <TextField id="filled-basic" label="Número de cadastro" variant="filled" required  value={idUsuario} onChange={handleIdChange}/>
                     </Grid>
                     <Box  display="flex" flexDirection={"row"} gap={2} justifyContent="space-between" alignItems="center">
-                        <Grid size={6}>
-                            <Button variant="outlined"  sx={{ width: '9vw', height: '5vh' }} startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
+                        <Grid size={6} >
+                            <Button variant="outlined"  sx={{
+                                width: {
+                                xs: 35, 
+                                sm: 60, 
+                                md: 95, 
+                                },
+                            }} startIcon={<AccountCircleIcon />} onClick={() => handleModalOpen()}>
                                 Criar Conta
                             </Button>
                         </Grid>    
                         <Grid size={6}>
-                            <Button variant="contained" sx={{ width: '9vw' , height: '5vh'}} endIcon={<ArrowForwardIcon />} onClick={() => handleCheckin()}>
+                            <Button variant="contained" 
+                            sx={{
+                                width: {
+                                xs: 60, 
+                                sm: 80, 
+                                md: 110, 
+                                },
+                            }}
+                             endIcon={<ArrowForwardIcon />} onClick={() => handleCheckin()}>
                                 Marcar presença
                             </Button>
                         </Grid>    
